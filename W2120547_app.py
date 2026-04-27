@@ -102,5 +102,23 @@ elif page == "Dashboard":
     
     # TABS
     tab1, tab2, tab3 = st.tabs(["📈 Trends", "🌍 Comparison", "📁 Data"])
+    
+    # TAB 1 — TREND ANALYSIS
+    with tab1:
+        st.subheader("📈 Exchange Rate Trends")
+
+        if not filtered_df.empty:
+            fig = px.line(
+                filtered_df,
+                x="Dates",
+                y="Exchange_Rate",
+                color="Market Name",
+                title="Exchange Rate Over Time",
+                markers=True
+            )
+            fig.update_layout(hovermode="x unified")
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("No data available for selected filters.")
 
 
