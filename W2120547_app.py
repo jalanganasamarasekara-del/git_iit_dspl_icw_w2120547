@@ -63,3 +63,11 @@ elif page == "Dashboard":
     
     # SIDEBAR FILTERS
     st.sidebar.header("🔎 Filters")
+    
+    # Country filter
+    countries = sorted(df['Country'].unique())
+    selected_countries = st.sidebar.multiselect(
+        "Select Country:",
+        options=countries,
+        default=countries[:2]
+    )
