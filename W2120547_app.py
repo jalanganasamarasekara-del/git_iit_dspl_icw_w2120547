@@ -168,7 +168,12 @@ elif page == "Dashboard":
                 x="Market Name",
                 y="Exchange_Rate",
                 color="Country",
-                title=f"Exchange Rate by Market ({latest_date.date()})"
+                color_discrete_sequence=px.colors.sequential.Greens
+            )
+            fig.update_layout(
+                template="plotly_dark",
+                paper_bgcolor="#0f1f17",
+                plot_bgcolor="#0f1f17"
             )
             st.plotly_chart(fig, use_container_width=True)
         else:
