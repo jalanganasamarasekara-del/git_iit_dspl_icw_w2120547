@@ -156,5 +156,10 @@ elif page == "Dashboard":
         col3.metric("Max Rate", f"{max_rate:.2f}")
     else:
         st.info("No data available.")
+    
+    # TAB 3 — RAW DATA
+    with tab3:
+        st.subheader("📁 Filtered Dataset")
+        st.dataframe(filtered_df.sort_values("Dates"), use_container_width=True)
 
 
