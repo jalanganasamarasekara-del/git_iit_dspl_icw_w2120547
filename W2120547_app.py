@@ -82,8 +82,8 @@ elif page == "Dashboard":
     )
     
     # Date filter
-    min_date = df['Dates'].min()
-    max_date = df['Dates'].max()
+    min_date = df['Dates'].min().to_pydatetime()
+    max_date = df['Dates'].max().to_pydatetime()
 
     date_range = st.sidebar.slider(
         "Select Date Range:",
@@ -94,11 +94,11 @@ elif page == "Dashboard":
     
     # FILTER DATA
     filtered_df = df[
-        (df['Country'].isin(selected_countries)) &
-        (df['Market Name'].isin(selected_markets)) &
-        (df['Dates'] >= date_range[0]) &
-        (df['Dates'] <= date_range[1])
-    ]
+    (df['Country'].isin(selected_countries)) &
+    (df['Market Name'].isin(selected_markets)) &
+    (df['Dates'] >= pd.to_datetime(date_range[0])) &
+    (df['Dates'] <= pd.to_datetime(date_range[1]))
+]
     
     # TABS
     tab1, tab2, tab3 = st.tabs(["📈 Trends", "🌍 Comparison", "📁 Data"])
