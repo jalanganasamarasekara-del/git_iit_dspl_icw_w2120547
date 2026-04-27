@@ -24,3 +24,6 @@ def load_data():
     return df
 
 df = load_data()
+
+# SIDEBAR NAVIGATION
+page = st.sidebar.selectbox("📌 Navigation", ["About", "Dashboard"])
