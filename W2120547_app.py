@@ -99,4 +99,8 @@ elif page == "Dashboard":
         (df['Dates'] >= date_range[0]) &
         (df['Dates'] <= date_range[1])
     ]
+    
+    # TABS
+    tab1, tab2, tab3 = st.tabs(["📈 Trends", "🌍 Comparison", "📁 Data"])
+
 
