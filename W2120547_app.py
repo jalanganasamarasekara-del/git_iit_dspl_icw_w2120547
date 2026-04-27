@@ -80,4 +80,15 @@ elif page == "Dashboard":
         options=filtered_markets,
         default=filtered_markets[:3]
     )
+    
+    # Date filter
+    min_date = df['Dates'].min()
+    max_date = df['Dates'].max()
+
+    date_range = st.sidebar.slider(
+        "Select Date Range:",
+        min_value=min_date,
+        max_value=max_date,
+        value=(min_date, max_date)
+    )
 
