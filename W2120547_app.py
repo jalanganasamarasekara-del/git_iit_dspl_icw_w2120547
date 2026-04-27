@@ -27,3 +27,30 @@ df = load_data()
 
 # SIDEBAR NAVIGATION
 page = st.sidebar.selectbox("📌 Navigation", ["About", "Dashboard"])
+
+# ABOUT PAGE
+if page == "About":
+    st.title("📚 About this Dashboard")
+
+    st.markdown("""
+    ## 🌍 Global Exchange Rate Dashboard
+
+    This dashboard analyses unofficial exchange rates across countries and markets using real-time data.
+
+    ### 🔍 Key Features:
+    - 📈 Time-series trend analysis  
+    - 🌍 Country-level comparison  
+    - 📍 Market-level insights  
+    - 📊 Interactive filtering  
+
+    ### 📊 Dataset:
+    - Source: Humanitarian Data Exchange (World Bank RTP)
+    - Focus: Exchange Rate (RTFX)
+    - Year: 2026
+
+    ### 🎯 Purpose:
+    To help decision-makers understand currency fluctuations and regional variations.
+
+    ### 🛠 Tools:
+    Streamlit, Plotly, Pandas
+    """)
