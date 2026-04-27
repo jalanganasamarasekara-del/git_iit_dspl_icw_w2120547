@@ -60,3 +60,6 @@ elif page == "Dashboard":
 
     st.title("💱 Global Exchange Rate Dashboard")
     st.markdown("Explore exchange rate trends across countries and markets.")
+    
+    # SIDEBAR FILTERS
+    st.sidebar.header("🔎 Filters")
