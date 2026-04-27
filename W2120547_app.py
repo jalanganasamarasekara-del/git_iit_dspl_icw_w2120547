@@ -86,6 +86,7 @@ elif page == "Dashboard":
 
     st.title("💱 Global Exchange Rate Dashboard")
     st.markdown("Explore exchange rate trends across countries and markets.")
+    st.info(f"Displaying data for {len(selected_countries)} countries and {len(selected_markets)} markets")
     
     # SIDEBAR FILTERS
     st.sidebar.header("🔎 Filters")
