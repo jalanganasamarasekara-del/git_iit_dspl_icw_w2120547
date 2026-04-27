@@ -10,6 +10,32 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+    /* Main background */
+    .main {
+        background-color: #0f1f17;
+    }
+
+    /* Text color */
+    h1, h2, h3, h4, h5, h6, p, div {
+        color: #e8f5e9;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background-color: #132a1f;
+    }
+
+    /* Metric cards */
+    div[data-testid="stMetric"] {
+        background-color: #1b3a2f;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # LOAD DATA
 @st.cache_data
 def load_data():
