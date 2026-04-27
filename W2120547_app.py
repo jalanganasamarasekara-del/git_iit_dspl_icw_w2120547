@@ -195,7 +195,26 @@ elif page == "Dashboard":
         col3.metric("Max Rate", f"{max_rate:.2f}")
     else:
         st.info("No data available.")
-    
+        
+    #KEY INSIGHTS
+    st.markdown("---")
+    st.subheader("🔍 Key Insights")
+    if not filtered_df.empty:
+        highest = filtered_df.loc[filtered_df['Exchange_Rate'].idxmax()]
+        lowest = filtered_df.loc[filtered_df['Exchange_Rate'].idxmin()]
+        st.write(
+            f"📈 Highest exchange rate observed in **{highest['Market Name']} ({highest['Country']})** "
+            f"on {highest['Dates'].date()} with a value of **{highest['Exchange_Rate']:.2f}**."
+        )
+        st.write(
+            f"📉 Lowest exchange rate observed in **{lowest['Market Name']} ({lowest['Country']})** "
+            f"on {lowest['Dates'].date()} with a value of **{lowest['Exchange_Rate']:.2f}**."
+        )
+        avg = filtered_df['Exchange_Rate'].mean()
+        st.write(f"📊 The average exchange rate across selected filters is **{avg:.2f}**.")
+    else:
+        st.info("No data available for insights.")
+        
     # TAB 3 — RAW DATA
     with tab3:
         st.subheader("📁 Filtered Dataset")
