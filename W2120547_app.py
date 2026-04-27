@@ -91,4 +91,12 @@ elif page == "Dashboard":
         max_value=max_date,
         value=(min_date, max_date)
     )
+    
+    # FILTER DATA
+    filtered_df = df[
+        (df['Country'].isin(selected_countries)) &
+        (df['Market Name'].isin(selected_markets)) &
+        (df['Dates'] >= date_range[0]) &
+        (df['Dates'] <= date_range[1])
+    ]
 
