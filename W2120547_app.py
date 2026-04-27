@@ -139,5 +139,22 @@ elif page == "Dashboard":
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("No data available.")
+    
+    # KPI SECTION
+    st.markdown("---")
+    st.subheader("📌 Key Metrics")
+
+    if not filtered_df.empty:
+        col1, col2, col3 = st.columns(3)
+
+        latest_rate = filtered_df.sort_values("Dates").iloc[-1]["Exchange_Rate"]
+        avg_rate = filtered_df["Exchange_Rate"].mean()
+        max_rate = filtered_df["Exchange_Rate"].max()
+
+        col1.metric("Latest Rate", f"{latest_rate:.2f}")
+        col2.metric("Average Rate", f"{avg_rate:.2f}")
+        col3.metric("Max Rate", f"{max_rate:.2f}")
+    else:
+        st.info("No data available.")
 
 
