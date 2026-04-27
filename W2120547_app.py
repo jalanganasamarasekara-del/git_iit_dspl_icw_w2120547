@@ -71,3 +71,13 @@ elif page == "Dashboard":
         options=countries,
         default=countries[:2]
     )
+    
+    # Market filter 
+    filtered_markets = df[df['Country'].isin(selected_countries)]['Market Name'].unique()
+
+    selected_markets = st.sidebar.multiselect(
+        "Select Market:",
+        options=filtered_markets,
+        default=filtered_markets[:3]
+    )
+
