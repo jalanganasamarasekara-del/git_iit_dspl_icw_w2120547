@@ -120,5 +120,24 @@ elif page == "Dashboard":
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("No data available for selected filters.")
+    
+    # TAB 2 — COUNTRY COMPARISON
+    with tab2:
+        st.subheader("🌍 Latest Exchange Rate Comparison")
+
+        if not filtered_df.empty:
+            latest_date = filtered_df['Dates'].max()
+            latest_data = filtered_df[filtered_df['Dates'] == latest_date]
+
+            fig = px.bar(
+                latest_data,
+                x="Market Name",
+                y="Exchange_Rate",
+                color="Country",
+                title=f"Exchange Rate by Market ({latest_date.date()})"
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("No data available.")
 
 
