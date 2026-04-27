@@ -139,10 +139,18 @@ elif page == "Dashboard":
                 x="Dates",
                 y="Exchange_Rate",
                 color="Market Name",
-                title="Exchange Rate Over Time",
-                markers=True
+                markers=True,
+                color_discrete_sequence=px.colors.sequential.Greens
             )
-            fig.update_layout(hovermode="x unified")
+            fig.update_layout(
+                title="Exchange Rate Over Time",
+                title_font_size=20,
+                template="plotly_dark",
+                hovermode="x unified",
+                legend_title="Markets",
+                paper_bgcolor="#0f1f17",
+                plot_bgcolor="#0f1f17"
+            )
             st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("No data available for selected filters.")
